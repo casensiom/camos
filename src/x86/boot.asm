@@ -41,8 +41,8 @@ call println
 
 jmp  $  ; infinite loop
 
-%include "boot/x86/print.asm"
-%include "boot/x86/disk.asm"
+%include "src/x86/print.asm"
+%include "src/x86/disk.asm"
 
 WELCOME_MSG: db ' Welcome to CamOS system', 0
 BOOT_DRIVE: db 0

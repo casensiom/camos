@@ -3,8 +3,16 @@ EMU=qemu-system-i386
 
 all: boot
 
-boot: boot/x86/boot.asm
-	$(AS) -f bin boot/x86/boot.asm -o boot/x86/boot
+
+folder: 
+	mkdir -p bin
+
+boot: src/x86/boot.asm folder
+	$(AS) -f bin src/x86/boot.asm -o bin/boot
 
 run: boot
-	$(EMU) -drive format=raw,file=boot/x86/boot
+	$(EMU) -drive format=raw,file=bin/boot
+
+clean:
+	rm bin/boot
+
